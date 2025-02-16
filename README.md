@@ -23,7 +23,7 @@
 
 4. **LICENSE**: : License file (Apache License 2.0).
 
-5. **gradepass.py**: Node Group  for Grade AOV. This node is used for grading Light AOV layers and allows adding multiple layers to the same GradeAOV, up to 11 layers.
+5. **gradeaov.py**: Node Group  for Grade AOV. This node is used for grading Light AOV layers and allows adding multiple layers to the same GradeAOV, up to 11 layers.
 
 6. **shuffle.py**: Tools for Shuffle & Shuffle2.
 
@@ -39,13 +39,13 @@ Before starting, place the file `layermanager_preferences.json` at the root of `
 1. Place the following files in the `.nuke/plugins` directory:
 
    - `layermanager.py`
-   - `gradepass.py`
+   - `gradeaov.py`
    - `shuffle.py`
    - `contribution.py`
 
 2. Place the following files in the `.nuke/gizmos` directory:
 
-   - `gradepass.gizmo`
+   - `gradeaov.gizmo`
    - `contribution.gizmo`
 
 3. Update `menu.py` to include:
@@ -70,7 +70,7 @@ for path in [nuke_path, plugins_path]:
 
 import layermanager
 import shuffle
-import gradepass
+import gradeaov
 import contribution
 
 # Create the main menu
@@ -92,7 +92,7 @@ def register_callbacks():
 
 nuke.addOnScriptLoad(register_callbacks)
 nuke.addOnCreate(contribution.knobChanged, nodeClass="contribution")
-nuke.addOnCreate(gradepass.knobChanged, nodeClass="gradepass")
+nuke.addOnCreate(gradeaov.knobChanged, nodeClass="gradeaov")
 ```
 
 4. Restart Nuke.
