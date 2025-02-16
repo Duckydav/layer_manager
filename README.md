@@ -21,7 +21,7 @@
 
 3. **menu.py**: Integration with Nuke.
 
-4. **LICENSE**: License file (if already present).
+4. **LICENSE**: : License file (Apache License 2.0).
 
 5. **gradepass.py**: Node Group  for Grade AOV. This node is used for grading Light AOV layers and allows adding multiple layers to the same GradeAOV, up to 11 layers.
 
