@@ -1,16 +1,13 @@
 #! /usr/local/Nuke14.1v2/libnuke-14.1.2.so -nx
 version 14.1 v2
-push $cut_paste_input
 Group {
-name contribution
+name ContributionAOV
  inputs 2
  knobChanged "import contribution\ncontribution.knobChanged()"
  tile_color 0x1869fff
- selected true
- xpos -1060
- ypos -2933
+ label "\[regsub -all \"CONT_\" \[value layer_layer_contribution_choice] \"\"]"
  addUserKnob {20 settings_tabs l Settings}
- addUserKnob {26 titre l "" +STARTLINE T "<br><font size=7>  Contribution<font color=\"#FCB132\"><font size=7><b>Pass</color><br>"}
+ addUserKnob {26 titre l "" +STARTLINE T "<br><font size=7>  Contribution<font color=\"#FCB132\"><font size=7><b>AOV</color><br>"}
  addUserKnob {26 ""}
  addUserKnob {1 tag l "" +STARTLINE +INVISIBLE}
  tag contribution
@@ -40,7 +37,7 @@ name contribution
  addUserKnob {7 settings_grade_mix_slider l mix}
  settings_grade_mix_slider 1
  addUserKnob {26 ""}
- addUserKnob {26 titre2 l "" +STARTLINE T "\n<a href=\"https://github.com/Duckydav\" style=\"text-decoration:none; color:#A2A1A1\">\nContribution<b><font color=\"#545454\"> Pass</font></b> v01.0 &copy; 2025\n"}
+ addUserKnob {26 github_link l "" +STARTLINE T "\n<a href=\"https://github.com/Duckydav\" style=\"text-decoration:none; color:#A2A1A1\">\nContribution<b><font color=\"#545454\"> AOV</font></b> v01.0 &copy; 2025\n"}
 }
  Input {
   inputs 0
@@ -53,7 +50,7 @@ name contribution
   xpos 542
   ypos -592
  }
-set Nf1f6150 [stack 0]
+set N15299820 [stack 0]
  Dot {
   name Dot5
   xpos 417
@@ -76,8 +73,8 @@ set Nf1f6150 [stack 0]
   xpos 970
   ypos -500
  }
-set Nd5291b0 [stack 0]
-push $Nd5291b0
+set N1d784750 [stack 0]
+push $N1d784750
  Dot {
   name Dot4
   xpos 1080
@@ -103,20 +100,20 @@ push $Nd5291b0
   xpos 970
   ypos -376
  }
-set N10d295c0 [stack 0]
+set N12753b70 [stack 0]
  Dot {
   name Dot2
   xpos 970
   ypos -331
  }
-push $N10d295c0
-push $Nf1f6150
+push $N12753b70
+push $N15299820
  Dot {
   name Dot16
   xpos 674
   ypos -592
  }
-set Nefb1200 [stack 0]
+set N1d81fc30 [stack 0]
  Dot {
   name Dot17
   xpos 811
@@ -132,7 +129,7 @@ set Nefb1200 [stack 0]
   xpos 777
   ypos -428
  }
-set N10eb1f30 [stack 0]
+set N12669870 [stack 0]
  Saturation {
   inputs 1+1
   saturation {{"settings_grade_saturation_slider < 1 ? settings_grade_saturation_slider:1"}}
@@ -152,15 +149,15 @@ set N10eb1f30 [stack 0]
   xpos 777
   ypos -335
  }
-set N108d9e80 [stack 0]
+set N124daa70 [stack 0]
  Dot {
   name Dot19
   xpos 811
   ypos -188
  }
-push $N108d9e80
-push $N10eb1f30
-push $Nefb1200
+push $N124daa70
+push $N12669870
+push $N1d81fc30
  Shuffle2 {
   fromInput1 {{0} B}
   in1 rgb
@@ -176,7 +173,7 @@ push $Nefb1200
   xpos 674
   ypos -491
  }
-set Nf140960 [stack 0]
+set Nfaadec0 [stack 0]
  Merge2 {
   inputs 2
   operation from
@@ -191,15 +188,15 @@ set Nf140960 [stack 0]
   xpos 640
   ypos -335
  }
-set Nf0bc7d0 [stack 0]
+set N1279c530 [stack 0]
  Dot {
   name Dot18
   xpos 674
   ypos -250
  }
-push $Nf0bc7d0
-push $Nf140960
-push $Nf1f6150
+push $N1279c530
+push $Nfaadec0
+push $N15299820
  Merge2 {
   inputs 2
   operation from
