@@ -11,7 +11,7 @@ name ContributionAOV
  addUserKnob {26 ""}
  addUserKnob {1 tag l "" +STARTLINE +INVISIBLE}
  tag contribution
- addUserKnob {4 layer_layer_light_choice l "light pass" M {"" ""}}
+ addUserKnob {4 layer_layer_light_choice l "Light Layer AOV" M {"" ""}}
  addUserKnob {68 layer_layer_contribution_choice l contribution M {"" ""}}
  addUserKnob {26 soacer_01 l "" +STARTLINE T " "}
  addUserKnob {26 ""}
