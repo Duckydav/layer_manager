@@ -38,8 +38,7 @@
         "fresnel",
         "motion",
         "Pref",
-        "denoise_N",
-        "rfx_depth"
+        "denoise_N"
     ],
     "custom Layer": [
         "CONT_"
