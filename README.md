@@ -33,6 +33,9 @@
 
 ### Installation Instructions
 
+Before starting, place the file **layermanager_preferences.json** at the root of .nuke/. This file configures tool preferences and section layers.
+
+
 1. Place the following files in the `.nuke/plugins` directory:
 
    - `layermanager.py`
