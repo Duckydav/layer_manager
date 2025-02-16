@@ -29,6 +29,8 @@
 
 7. **contribution.py**: Node Group for Contribution for grading Contribution layers from AOV Layers.
 
+8. **layermanager_preferences.json**: Configuration file to set layer preferences. This file allows configuring the tool and defining channel layer sections such as Light, Mask, Utility, Technic, and Custom..
+
 ### Installation Instructions
 
 1. Place the following files in the `.nuke/plugins` directory:
