@@ -1,6 +1,7 @@
 # Layer Manager v1.3
 
-**Description:** This tool provides a user-friendly interface for quickly visualizing Viewer Layer Channels with a single click, and organizes layers into sections like **Light, Mask, Utilities, Technic, or Custom layers.**\
+**Description:** This tool provides a user-friendly interface for quickly visualizing Viewer Layer Channels with a single click, and organizes layers into sections like \
+**Light, Mask, Utilities, Technic, or Custom layers.**\
 &#x20;It also enables the addition a GradeAOV on Light layer, contribution or shuffle on selected layer channel, and allows navigating layers or sections using keyboard arrows for quick visualization. The tool also includes the **GradeAOV** node for Light Layers, the **Contribution** Grade node for Contribution Layers, and the **Shuffle Auto** tool to visualize their connections in shuffle node.
 
 ### Features
