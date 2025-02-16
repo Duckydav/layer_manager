@@ -23,7 +23,7 @@
 
 4. **LICENSE**: License file (if already present).
 
-5. **gradepass.py**: Node Group  for Grade AOV. This node is used for grading Light AOV layers and allows adding multiple layers to the same GradeAOV.
+5. **gradepass.py**: Node Group  for Grade AOV. This node is used for grading Light AOV layers and allows adding multiple layers to the same GradeAOV, up to 11 layers.
 
 6. **shuffle.py**: Tools for Shuffle & Shuffle2.
 
@@ -102,8 +102,9 @@ nuke.addOnCreate(gradepass.knobChanged, nodeClass="gradepass")
 - **Open the interface:** Press `` ` `` (key between ESC and TAB).
 - **Layer navigation:** Use ↑ & ↓ to change layer and ← & → to change section.
 - **Create GradeAOV:** Select layer and press `G`.
+- **Add Layer AOV:** With the Grade AOV node, you can add multiple Light Layers in the same node, up to 11 layers.
 - **Create Contribution Grade:** Select layer and press `Shift+G`.
-- **Run Shuffle Auto:** Press `V` on shuffle or shuffle2 .
+- **Run Shuffle Auto:** Press V on shuffle or shuffle2 node to see input and output connections.
 
 ### Contribution
 
