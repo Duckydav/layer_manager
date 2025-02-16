@@ -1,0 +1,255 @@
+#! /usr/local/Nuke14.1v2/libnuke-14.1.2.so -nx
+version 14.1 v2
+push $cut_paste_input
+Group {
+name contribution
+ inputs 2
+ knobChanged "import contribution\ncontribution.knobChanged()"
+ tile_color 0x1869fff
+ selected true
+ xpos -1060
+ ypos -2933
+ addUserKnob {20 settings_tabs l Settings}
+ addUserKnob {26 titre l "" +STARTLINE T "<br><font size=7>  Contribution<font color=\"#FCB132\"><font size=7><b>Pass</color><br>"}
+ addUserKnob {26 ""}
+ addUserKnob {1 tag l "" +STARTLINE +INVISIBLE}
+ tag contribution
+ addUserKnob {4 layer_layer_light_choice l "light pass" M {"" ""}}
+ addUserKnob {68 layer_layer_contribution_choice l contribution M {"" ""}}
+ addUserKnob {26 soacer_01 l "" +STARTLINE T " "}
+ addUserKnob {26 ""}
+ addUserKnob {7 settings_grade_saturation_slider l saturation}
+ settings_grade_saturation_slider 1
+ addUserKnob {26 ""}
+ addUserKnob {26 settings_grade_text l "@b;Grade:"}
+ addUserKnob {41 settings_grade_blackpoint_link l blackpoint T contribution_grade.blackpoint}
+ addUserKnob {41 settings_grade_whitepoint_link l whitepoint T contribution_grade.whitepoint}
+ addUserKnob {41 settings_grade_lift_link l lift T contribution_grade.black}
+ addUserKnob {41 settings_grade_gain_link l gain T contribution_grade.white}
+ addUserKnob {41 settings_grade_multiply_link l multiply T contribution_grade.multiply}
+ addUserKnob {41 settings_grade_offset_link l offset T contribution_grade.add}
+ addUserKnob {41 settings_grade_gamma_link l gamma T contribution_grade.gamma}
+ addUserKnob {26 divider_02 l "" +STARTLINE}
+ addUserKnob {26 spacer_02 l "" +STARTLINE T " "}
+ addUserKnob {26 settings_mask_text l "@b;Mask:"}
+ addUserKnob {26 "" l mask T ""}
+ addUserKnob {41 maskChannelMask l "" -STARTLINE T contribution_grade.maskChannelMask}
+ addUserKnob {41 invert_mask l invert -STARTLINE T contribution_grade.invert_mask}
+ addUserKnob {41 fringe -STARTLINE T contribution_grade.fringe}
+ addUserKnob {26 divider_01 l "" +STARTLINE}
+ addUserKnob {7 settings_grade_mix_slider l mix}
+ settings_grade_mix_slider 1
+ addUserKnob {26 ""}
+ addUserKnob {26 titre2 l "" +STARTLINE T "\n<a href=\"https://github.com/Duckydav\" style=\"text-decoration:none; color:#A2A1A1\">\nContribution<b><font color=\"#545454\"> Pass</font></b> v01.0 &copy; 2025\n"}
+}
+ Input {
+  inputs 0
+  name bty
+  xpos 508
+  ypos -691
+ }
+ Dot {
+  name Dot15
+  xpos 542
+  ypos -592
+ }
+set Nf1f6150 [stack 0]
+ Dot {
+  name Dot5
+  xpos 417
+  ypos -592
+ }
+ Dot {
+  name Dot6
+  xpos 417
+  ypos -151
+ }
+ Input {
+  inputs 0
+  name mask
+  xpos 936
+  ypos -568
+  number 1
+ }
+ Dot {
+  name Dot3
+  xpos 970
+  ypos -500
+ }
+set Nd5291b0 [stack 0]
+push $Nd5291b0
+ Dot {
+  name Dot4
+  xpos 1080
+  ypos -500
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 black -1 -1 rgba.red 0 0 black -1 -1 rgba.green 0 1 black -1 -1 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name white_alpha
+  xpos 1046
+  ypos -432
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input1]"}}
+  name original_alpha_to_mask_switch
+  xpos 936
+  ypos -432
+ }
+ Dot {
+  name Dot1
+  xpos 970
+  ypos -376
+ }
+set N10d295c0 [stack 0]
+ Dot {
+  name Dot2
+  xpos 970
+  ypos -331
+ }
+push $N10d295c0
+push $Nf1f6150
+ Dot {
+  name Dot16
+  xpos 674
+  ypos -592
+ }
+set Nefb1200 [stack 0]
+ Dot {
+  name Dot17
+  xpos 811
+  ypos -592
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 rgb
+  out1 rgb
+  fromInput2 {{0} B}
+  mappings "3 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2"
+  name contribution_shuffle
+  xpos 777
+  ypos -428
+ }
+set N10eb1f30 [stack 0]
+ Saturation {
+  inputs 1+1
+  saturation {{"settings_grade_saturation_slider < 1 ? settings_grade_saturation_slider:1"}}
+  maskChannelMask {{{contribution_grade.maskChannelMask}}}
+  inject {{contribution_grade.inject.left}}
+  invert_mask {{contribution_grade.invert_mask.left}}
+  fringe {{parent.contribution_grade.fringe.left}}
+  mix {{contribution_grade.mix.left}}
+  name contribution_saturation
+  xpos 777
+  ypos -380
+ }
+ Grade {
+  inputs 1+1
+  mix {{settings_grade_mix_slider}}
+  name contribution_grade
+  xpos 777
+  ypos -335
+ }
+set N108d9e80 [stack 0]
+ Dot {
+  name Dot19
+  xpos 811
+  ypos -188
+ }
+push $N108d9e80
+push $N10eb1f30
+push $Nefb1200
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 rgb
+  out1 rgb
+  fromInput2 {{0} B}
+  mappings "3 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2"
+  name light_shuffle
+  xpos 640
+  ypos -548
+ }
+ Dot {
+  name Dot13
+  xpos 674
+  ypos -491
+ }
+set Nf140960 [stack 0]
+ Merge2 {
+  inputs 2
+  operation from
+  name contribution_from
+  xpos 640
+  ypos -428
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name contribution_plus
+  xpos 640
+  ypos -335
+ }
+set Nf0bc7d0 [stack 0]
+ Dot {
+  name Dot18
+  xpos 674
+  ypos -250
+ }
+push $Nf0bc7d0
+push $Nf140960
+push $Nf1f6150
+ Merge2 {
+  inputs 2
+  operation from
+  name light_from
+  xpos 508
+  ypos -495
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name light_plus
+  xpos 508
+  ypos -335
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  out1 {{{light_shuffle.in1}}}
+  fromInput2 {{1} B A}
+  in2 rgb
+  mappings "3 rgba.red 1 0 rgba.red 0 0 rgba.green 1 1 rgba.green 0 1 rgba.blue 1 2 rgba.blue 0 2"
+  name light_shuffle_in
+  xpos 508
+  ypos -254
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  out1 {{{contribution_shuffle.in1}}}
+  fromInput2 {{1} B A}
+  in2 rgb
+  mappings "3 rgba.red 1 0 rgba.red 0 0 rgba.green 1 1 rgba.green 0 1 rgba.blue 1 2 rgba.blue 0 2"
+  name contribution_shuffle_in
+  xpos 508
+  ypos -192
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{1} B A}
+  in2 alpha
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 1 0 rgba.alpha 0 3"
+  name original_alpha
+  selected true
+  xpos 508
+  ypos -155
+ }
+ Output {
+  name Output1
+  xpos 508
+  ypos -92
+ }
+end_group

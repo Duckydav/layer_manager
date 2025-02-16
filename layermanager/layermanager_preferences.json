@@ -1,0 +1,53 @@
+{
+    "Light Layer": [
+        "RGBA_"
+    ],
+    "Grade AOV Node": "",
+    "Mask Layer": [
+        "matte",
+        "mask",
+        "assembly",
+        "LOOK",
+        "iris",
+        "pupil",
+        "sclera",
+        "shadow_matte",
+        "glint",
+        "Msk"
+    ],
+    "Tech Layer": [
+        "diffuse",
+        "specular",
+        "sss",
+        "transmission",
+        "emission",
+        "albedo",
+        "direct",
+        "indirect",
+        "sheen",
+        "coat"
+    ],
+    "Utility Layer": [
+        "AO",
+        "N",
+        "P",
+        "UTIL",
+        "UV",
+        "caustic",
+        "depth",
+        "fresnel",
+        "motion",
+        "Pref",
+        "denoise_N",
+        "rfx_depth"
+    ],
+    "custom Layer": [
+        "CONT_"
+    ],
+    "Exclusion Keywords": [
+        "rgba",
+        "crypto",
+        "other"
+    ],
+    "custom Title": "Contribution"
+}
